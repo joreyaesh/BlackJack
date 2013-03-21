@@ -6,8 +6,7 @@ public class Player {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// Did I get it?
-		// I did it!!
+		// We good?
 
 	}
 
