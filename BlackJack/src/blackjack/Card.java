@@ -1,11 +1,11 @@
 package blackjack;
 
-public Class Card{
+public class Card{
   
   private int faceValue = 0;
   private String faceName, suit = "";
   
-  public void Card(int faceValue, int suitValue){
+  public Card(int faceValue, int suitValueInt){
     this.faceValue = faceValue;
     switch(faceValue){
       case 1:  faceName = "Ace";
