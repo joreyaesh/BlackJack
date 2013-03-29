@@ -8,7 +8,7 @@ public Class Deck{
 	public static void main(String[] args){
 		Deck deck = new Deck();
 		for(int i = 0; i<deck.length(); i++){
-			System.out.println(deck[i].getFaceValue() + " of " + deck[i].getSuit())
+			System.out.println(deck[i].getFaceValue() + " of " + deck[i].getSuit());
 		}
 	}
 	
