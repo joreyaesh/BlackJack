@@ -5,6 +5,7 @@ import java.util.Collections;
 
 public Class Deck{
 	
+<<<<<<< HEAD
 	public static void main(String[] args){
 		Deck deck = new Deck();
 		for(int i = 0; i<deck.length(); i++){
@@ -12,7 +13,13 @@ public Class Deck{
 		}
 	}
 	
+=======
+	int playerScore = 0;
+	int dealerScore = 0;
+>>>>>>> 3/29/13 Allyseia1
 	private List cards = new ArrayList(52);
+	
+	Scanner kb = new Scanner(System.in);
 	
 	public void Deck(){
 		for(int i = 1; i<=4; i++){
@@ -30,6 +37,13 @@ public Class Deck{
 	  Collections.shuffle(cards);
 	}
 	
+	if ((dealerScore != 21) && (playerScore != 21))
+	{
+		System.out.println("Would you like to hit? (Y/N)");
+		hit = kb.readLine();
+		hit = hit.toUpperCase();
+		
+	}
 	
 	
 }
