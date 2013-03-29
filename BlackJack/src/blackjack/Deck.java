@@ -2,6 +2,7 @@ package blackjack;
 
 import java.util.ArrayList;
 import java.util.Collections;
+<<<<<<< HEAD
 import java.util.*;
 
 public class Deck{
@@ -20,8 +21,21 @@ public class Deck{
 	int dealerScore = 0;
 >>>>>>> 3/29/13 Allyseia1
 	private List cards = new ArrayList(52);
+=======
+import java.util.List;
+import java.util.Scanner;
+
+public class Deck{
+	
+	private int playerScore = 0;
+	private int dealerScore = 0;
+	
+	private List cards = new ArrayList<Card>(52);
+	String hit;
+>>>>>>> 3/29/13 Allyseia3
 	
 	Scanner kb = new Scanner(System.in);
+	
 	
 	public void Deck(){
 =======
@@ -37,7 +51,7 @@ public class Deck{
 >>>>>>> Fixed Card and Deck Classes
 		for(int i = 1; i<=4; i++){
 		// 4 suits
-		  for(int i2 = 1; i2<=13; i2++){
+		  for (int i2 = 1; i2<=13; i2++){
 		    Card card = new Card(i2, i); // i2 is the face value, i is suit value
 		    cards.add(card);
 		    length++;
@@ -46,18 +60,24 @@ public class Deck{
 		shuffle(cards);
 	}
 	
+<<<<<<< HEAD
 	public void shuffle(List<Card> cards){
+=======
+	public void shuffle(ArrayList cards)
+	{
+>>>>>>> 3/29/13 Allyseia3
 		// shuffle cards with the shuffle function built into Collections
 	  Collections.shuffle(cards);
+
 	}
+
 	
-	if ((dealerScore != 21) && (playerScore != 21))
-	{
-		System.out.println("Would you like to hit? (Y/N)");
-		hit = kb.readLine();
-		hit = hit.toUpperCase();
+	//if ((dealerScore != 21) && (playerScore != 21))
+	//{
+		//System.out.println("Would you like to hit? (Y/N)");
+		//hit = kb.readLine();
+		//hit = hit.toUpperCase();
 		
 	}
 	
 	
-}
