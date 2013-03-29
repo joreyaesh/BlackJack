@@ -5,12 +5,19 @@ import java.util.Collections;
 
 public Class Deck{
 	
+	public static void main(String[] args){
+		Deck deck = new Deck();
+		for(int i = 0; i<deck.length(); i++){
+			System.out.println(deck[i].getFaceValue() + " of " + deck[i].getSuit())
+		}
+	}
+	
 	private List cards = new ArrayList(52);
 	
 	public void Deck(){
 		for(int i = 1; i<=4; i++){
 		// 4 suits
-		  for int i2 = 1; i2<=13; i2++{
+		  for(int i2 = 1; i2<=13; i2++){
 		    Card card = new Card(i2, i); // i2 is the face value, i is suit value
 		    cards.add(card);
 		  }
