@@ -8,21 +8,28 @@ public class Player{
 	
 	private String name;
 	private int wallet, bet, total = 0;
-	private ArrayList<Card> hand;
+	private ArrayList<Card> hand = new ArrayList<Card>();
 	
 	
 	public Player(){
-		
+		setName("No Name Provided");
+		setWallet(0);
 	}
 	
 	public Player(String name, int wallet){
 		setName(name);
 		setWallet(wallet);
-		hand = new ArrayList<Card>();
 	}
 	
 	private void setBet(int bet){
-		this.bet = bet;
+		if(bet <= wallet){
+			wallet -= bet;
+			this.bet = bet;
+		}
+		else{
+			System.out.println(name + " has Insufficient funds!");
+			this.bet = 0;
+		}
 	}
 	
 	public int getBet(){
