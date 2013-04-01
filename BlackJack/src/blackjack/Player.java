@@ -26,7 +26,8 @@ public class Player{
 	}
 	
 	public int getBet(){
-		return bet;
+		int result = bet;
+		return result;
 	}
 	
 	private void setName(String name){
@@ -34,7 +35,8 @@ public class Player{
 	}
 	
 	public String getName(){
-		return name;
+		String result = name;
+		return result;
 	}
 	
 	private void setWallet(int wallet){
@@ -42,7 +44,8 @@ public class Player{
 	}
 	
 	public int getWallet(){
-		return wallet;
+		int result = wallet;
+		return result;
 	}
 	
 	private void setTotal(int total){
@@ -50,7 +53,8 @@ public class Player{
 	}
 	
 	public int getTotal(){
-		return total;
+		int result = total;
+		return result;
 	}
 	
 	public void playHand(int bet){
