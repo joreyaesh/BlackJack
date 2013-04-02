@@ -43,6 +43,9 @@ public class Deck{
 	}
 
 	public Card takeCard() {
+		if(cards.size() == 0){
+			Driver.requestDeck();
+		}
 		Card card = cards.remove(0);
 		return card;
 	}

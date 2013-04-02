@@ -150,5 +150,11 @@ public class Driver {
 		
 	}
 
+	// if there are no more cards, this is called
+	public static void requestDeck() {
+		deck = new Deck(4); // adds 4 more decks
+		
+	}
+
 }
 
