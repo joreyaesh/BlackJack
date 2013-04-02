@@ -29,11 +29,10 @@ public class Player{
 		
 		do{
 			String message = "You currently have $" + getWallet() + " to bet.\n" + "What would you like to bet?";
-			String input = "A whole number, in dollars, of at least 10";
+			String input = "A whole number; at least $10";
 			String response = JOptionPane.showInputDialog(message, input);
 			// error handling
-			if(response == null || response.equals("Please enter a whole number of more than 10") 
-					|| response.equals("A whole number, in dollars, of at least 10")){
+			if(response == null || response.equals("A whole number; at least $10")){
 				bet = 0;
 			}
 			else{
