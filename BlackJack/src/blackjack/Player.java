@@ -1,13 +1,15 @@
 package blackjack;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 
 public class Player{
 	
 	
 	private String name;
-	private int wallet, bet, total = 0;
+	double wallet;
+	private int bet, total = 0;
 	private ArrayList<Card> hand = new ArrayList<Card>();
 	
 	
@@ -16,18 +18,53 @@ public class Player{
 		setWallet(0);
 	}
 	
-	public Player(String name, int wallet){
+	public Player(String name, double wallet){
 		setName(name);
 		setWallet(wallet);
 	}
 	
+	// Used for when the player sets the bet
+	public void placeBet(){ 
+		int bet;
+		
+		do{
+			String message = "You currently have $" + getWallet() + " to bet.\n" + "What would you like to bet?";
+			String input = "A whole number, in dollars, of at least 10";
+			String response = JOptionPane.showInputDialog(message, input);
+			// error handling
+			if(response == null || response.equals("Please enter a whole number of more than 10") 
+					|| response.equals("A whole number, in dollars, of at least 10")){
+				bet = 0;
+			}
+			else{
+				bet = Integer.parseInt(response);
+			}
+		} while(bet < 10);
+		setBet(bet);
+	}
+	
+	// Used to change get paid/pay
+	public void pay(double amount){
+		double current = this.wallet;
+		current += amount;
+		setWallet(current);
+	}
+	
+	// Used so the dealer can match the player's bet
+	public void matchBet(int bet){
+		setBet(bet);
+	}
+	
 	private void setBet(int bet){
-		if(bet <= wallet){
-			wallet -= bet;
+		if(bet <= wallet){ // Check for insufficient funds
+			double current = this.wallet;
+			current -= bet;
+			setWallet(current);
 			this.bet = bet;
 		}
 		else{
-			System.out.println(name + " has Insufficient funds!");
+			String message = name + " has insufficient funds to bet $" + Integer.toString(bet) + ".";
+			JOptionPane.showMessageDialog(null, message);
 			this.bet = 0;
 		}
 	}
@@ -46,12 +83,12 @@ public class Player{
 		return result;
 	}
 	
-	private void setWallet(int wallet){
+	private void setWallet(double wallet){
 		this.wallet = wallet;
 	}
 	
-	public int getWallet(){
-		int result = wallet;
+	public double getWallet(){
+		double result = wallet;
 		return result;
 	}
 	
@@ -64,15 +101,19 @@ public class Player{
 		return result;
 	}
 	
-	public void playHand(int bet){
+	public ArrayList<Card> getHand(){
+		ArrayList<Card> hand = this.hand;
+		return hand;
+	}
+	
+	public void takeHand(){
 		clearHand();
-		setBet(bet);
 		requestCards(2);
 	}
 	
 	public void requestCards(int num){
 		for(int i=0; i<num; i++){
-			hand.add(Deck.giveCard());
+			hand.add(Driver.deck.takeCard());
 		}
 		updateTotal();
 	}
@@ -88,6 +129,15 @@ public class Player{
 			total += hand.get(i).getFaceValue();
 		}
 		setTotal(total);
+	}
+
+	public void checkAce() {
+		for(int i = 0; i<hand.size(); i++){
+			if(hand.get(i).getFaceValue() == 11){
+				hand.get(i).lowerAce();
+			}
+		}
+		updateTotal();
 	}
 		
 }

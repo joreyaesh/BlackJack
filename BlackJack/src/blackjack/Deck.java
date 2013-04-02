@@ -6,7 +6,7 @@ import java.util.*;
 
 public class Deck{
 
-	private static List<Card> cards = new ArrayList<Card>(52);
+	private List<Card> cards = new ArrayList<Card>(52);
 
 	public Deck(){
 		for(int i = 1; i<=4; i++){
@@ -31,13 +31,18 @@ public class Deck{
 			shuffle(cards);
 		}
 	}
+	
+	public List<Card> getCards(){
+		List<Card> cards = this.cards;
+		return cards;
+	}
 
 	public void shuffle(List<Card> cards){
 		// shuffle cards with the shuffle function built into Collections
 		Collections.shuffle(cards);
 	}
 
-	public static Card giveCard() {
+	public Card takeCard() {
 		Card card = cards.remove(0);
 		return card;
 	}
